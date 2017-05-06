@@ -7,7 +7,7 @@ var bot = new Discord.Client()
 var client = new Discord.Client()
 const music = require('discord.js-music-v11');
 var prefix = "<"
-
+bot.login("token")
 
 // Events //
 
