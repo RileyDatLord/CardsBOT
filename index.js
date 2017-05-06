@@ -47,15 +47,21 @@ bot.on("guildDelete", guild =>  {
 
 // Functions //
 
-
+function clean(text) {
+  if (typeof(text) === "string")
+    return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+  else
+      return text;
+}
 
 // Commands //
+
 
 bot.on("message", message =>    {   
     if (msg.author.bot) return;
     if (msg.channel.type !== 'text') return;
 
-
+// Eval command
      if (message.content.startsWith(prefix + "eval")) {
     try {
       var code = args.join(" ");
@@ -69,6 +75,19 @@ bot.on("message", message =>    {
       message.channel.sendMessage(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
     }
   }
+// Shutdown command
+    if (message.content.startsWith(prefix + "stop"))    {
+        if (message.author.id == "240310996390903808")  {
+            setInterval(function()  {
+                process.exit()
+            }, 1500)
+            setInterval(function()  {
+                bot.destroy()
+            }, 1000)
+            message.channel.sendMessage("`Shutting down bot!`")
+        }
+
+    }
 
 })
 
