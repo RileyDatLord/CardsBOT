@@ -92,7 +92,12 @@ bot.on("message", message =>    {
 })
 
 // Music //
-music(client);
+music(bot, {
+	prefix: '-',     // Prefix of '-'.
+	global: false,   // Server-specific queues.
+	maxQueueSize: 10, // Maximum queue size of 10.
+	clearInvoker: true // If permissions applicable, allow the bot to delete the messages that invoke it (start with prefix)
+});
 // Config "discord.js-music-v11" npm to 
 // be able to change some messages and add / remove 
 //commands to the bot. Including the prefix needing 
