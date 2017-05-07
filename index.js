@@ -62,7 +62,7 @@ bot.on("message", message =>    {
     if (msg.channel.type !== 'text') return;
 
 // Eval command
-     if (message.content.startsWith(prefix + "eval")) {
+     if (message.content.toLowerCase == prefix + "eval") {
     try {
       var code = args.join(" ");
       var evaled = eval(code);
@@ -76,7 +76,7 @@ bot.on("message", message =>    {
     }
   }
 // Shutdown command
-    if (message.content.startsWith(prefix + "stop"))    {
+    if (message.content.toLowerCase == prefix + "stop")    {
         if (message.author.id == "240310996390903808")  {
             setInterval(function()  {
                 process.exit()
@@ -86,6 +86,9 @@ bot.on("message", message =>    {
             }, 1000)
             message.channel.sendMessage("`Shutting down bot!`")
         }
+
+    }
+    if (message.content.toLowerCase == prefix + "card") {
 
     }
 
