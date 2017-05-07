@@ -96,7 +96,7 @@ bot.on("message", message =>    {
 
 // Music //
 music(bot, {
-	prefix: '-',     // Prefix of '-'.
+	prefix: prefix,     // Prefix of '-'.
 	global: false,   // Server-specific queues.
 	maxQueueSize: 10, // Maximum queue size of 10.
 	clearInvoker: true // If permissions applicable, allow the bot to delete the messages that invoke it (start with prefix)
