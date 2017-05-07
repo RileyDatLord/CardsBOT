@@ -58,8 +58,8 @@ function clean(text) {
 
 
 bot.on("message", message =>    {   
-    if (msg.author.bot) return;
-    if (msg.channel.type !== 'text') return;
+    if (message.author.bot) return;
+    if (message.channel.type !== 'text') return;
 
 // Eval command
      if (message.content.toLowerCase == prefix + "eval") {
