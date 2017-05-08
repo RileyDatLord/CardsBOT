@@ -63,7 +63,7 @@ bot.on("message", message =>    {
     if (message.channel.type !== 'text') return;
 // Help command
     if (message.content.startsWith(prefix + "help"))    {
-        message.react("credit_card")
+        message.reply("Check your DM's")
         message.author.sendMessage("```General Commands:\nNone as of yet :/```")
         message.author.sendMessage("```Owner commands:\n<eval - Eval some code!\n<stop - Shutdown the bot```")
     }
