@@ -7,6 +7,7 @@ var bot = new Discord.Client()
 var client = new Discord.Client()
 const music = require('discord.js-music-v11');
 var prefix = "<"
+var ownerid = "Your id"
 bot.login("token")
 
 // Events //
@@ -68,7 +69,9 @@ bot.on("message", message =>    {
     }
 // Eval command
      if (message.content.startsWith(prefix + "eval")) {
+        if (message.author.id == ownerid){
     try {
+      const args = message.content.split(" ").slice(1);
       var code = args.join(" ");
       var evaled = eval(code);
 
@@ -79,10 +82,10 @@ bot.on("message", message =>    {
     } catch (err) {
       message.channel.sendMessage(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
     }
-  }
+  }}
 // Shutdown command
     if (message.content.startsWith(prefix + "stop"))    {
-        if (message.author.id == "240310996390903808")  {
+        if (message.author.id == ownerid)  {
             setInterval(function()  {
                 process.exit()
             }, 1500)
