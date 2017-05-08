@@ -12,6 +12,13 @@ bot.login("token")
 
 // Events //
 
+//Bot ready event
+
+bot.on("ready", () =>   {
+    console.log(`Bot started in ${bot.guilds.size} guilds and with ${bot.users.size} users!`)
+    bot.user.setGame(`with ${bot.users.size} users! | <help`)
+
+})
 
 //Join Event
 
