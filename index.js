@@ -29,8 +29,8 @@ bot.on("guildMemberRemove", member =>  {
     let guild = member.guild
     let guildname = guild.name
     let user = member.displayName
-    guild.defaultChannel.sendMessage(`Please welcome to ${guildname}, ${user}!`)
-    console.log(`User ${user} has joined ${guildname}.`)
+    guild.defaultChannel.sendMessage(`${user} has left!`)
+    console.log(`User ${user} has left ${guildname}.`)
 })
 
 //Join new guild event
