@@ -60,9 +60,14 @@ function clean(text) {
 bot.on("message", message =>    {   
     if (message.author.bot) return;
     if (message.channel.type !== 'text') return;
-
+// Help command
+    if (message.content.startsWith(prefix + "help"))    {
+        message.react("credit_card")
+        message.author.sendMessage("```General Commands:\nNone as of yet :/```")
+        message.author.sendMessage("```Owner commands:\n<eval - Eval some code!\n<stop - Shutdown the bot```")
+    }
 // Eval command
-     if (message.content.toLowerCase == prefix + "eval") {
+     if (message.content.startsWith(prefix + "eval")) {
     try {
       var code = args.join(" ");
       var evaled = eval(code);
@@ -76,7 +81,7 @@ bot.on("message", message =>    {
     }
   }
 // Shutdown command
-    if (message.content.toLowerCase == prefix + "stop")    {
+    if (message.content.startsWith(prefix + "stop"))    {
         if (message.author.id == "240310996390903808")  {
             setInterval(function()  {
                 process.exit()
@@ -88,15 +93,27 @@ bot.on("message", message =>    {
         }
 
     }
-    if (message.content.toLowerCase == prefix + "card") {
+    const suits = ["♠️", "♦", "♥️", "♠️"];
+    const ranks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 
-    }
+// Card command
+    if (message.content.startsWith(prefix + "card")) {
+    const numCards = message.content.slice(1 + 5);
+    const lines = [];
+  
+
+     for (let i = 0; i < numCards; ++i) {
+        lines.push(`**${ranks[Math.floor(Math.random() * ranks.length)]}**${suits[Math.floor(Math.random() * suits.length)]}`);
+      }
+
+      msg.channel.sendMessage(lines.join(", "));
+        }
 
 })
 
 // Music //
 music(bot, {
-	prefix: prefix,     // Prefix of '-'.
+	prefix: '<',     // Prefix of '-'.
 	global: false,   // Server-specific queues.
 	maxQueueSize: 10, // Maximum queue size of 10.
 	clearInvoker: false // If permissions applicable, allow the bot to delete the messages that invoke it (start with prefix)
