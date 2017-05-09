@@ -6,8 +6,9 @@ const moment = require("moment");
 var bot = new Discord.Client()
 var client = new Discord.Client()
 const music = require('discord.js-music-v11');
-var prefix = "<"
-var ownerid = "Your id"
+const config = require("./settings.json")
+var prefix = config.prefix
+var ownerid = config.owner
 bot.login("token")
 
 // Events //
@@ -16,7 +17,7 @@ bot.login("token")
 
 bot.on("ready", () =>   {
     console.log(`Bot started in ${bot.guilds.size} guilds and with ${bot.users.size} users!`)
-    bot.user.setGame(`with ${bot.users.size} users! | <help`)
+    bot.user.setGame(`with ${bot.users.size} users! | ${config.prefix}help`)
 
 })
 
