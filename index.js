@@ -9,7 +9,7 @@ const music = require('discord.js-music-v11');
 const config = require("./settings.json")
 var prefix = config.prefix
 var ownerid = config.owner
-bot.login("token")
+bot.login(config.token)
 
 // Events //
 
@@ -69,12 +69,26 @@ function clean(text) {
 bot.on("message", message =>    {   
     if (message.author.bot) return;
     if (message.channel.type !== 'text') return;
+//ANY USER COMMANDS
 // Help command
     if (message.content.startsWith(prefix + "help"))    {
         message.reply("Check your DM's")
         message.author.sendMessage("```General Commands:\nNone as of yet :/```")
         message.author.sendMessage("```Owner commands:\n<eval - Eval some code!\n<stop - Shutdown the bot```")
     }
+// Github command
+    if (message.content.startsWith(prefix + "github"))  {
+        message.reply("Go here to view the open source bot!\nhttps://github.com/RileyDatLord/CardsBOT").then(reply => {
+            
+            setTimeout(function()   {
+            reply.delete()
+            message.author.sendMessage("Go here to view the open source bot!\nhttps://github.com/RileyDatLord/CardsBOT\n\nAuto sent - reply deleted in channel")
+            }, 20000)
+           
+        })
+    }
+
+//OWNER ONLY COMMANDS
 // Eval command
      if (message.content.startsWith(prefix + "eval")) {
         if (message.author.id == ownerid){
