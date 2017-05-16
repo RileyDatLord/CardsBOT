@@ -9,6 +9,7 @@ const music = require('discord.js-music-v11');
 const config = require("./settings.json")
 var prefix = config.prefix
 var ownerid = config.owner
+var ownername = config.ownerName
 bot.login(config.token)
 
 // Events //
@@ -74,7 +75,7 @@ bot.on("message", message =>    {
     if (message.content.startsWith(prefix + "help"))    {
         message.reply("Check your DM's")
         message.author.sendMessage("```General Commands:\nNone as of yet :/```")
-        message.author.sendMessage("```Owner commands:\n<eval - Eval some code!\n<stop - Shutdown the bot```")
+        message.author.sendMessage("```${ownername} commands:\n<eval - Eval some code!\n<stop - Shutdown the bot```")
     }
 // Github command
     if (message.content.startsWith(prefix + "github"))  {
