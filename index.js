@@ -45,7 +45,7 @@ bot.on("guildMemberRemove", member =>  {
 //Join new guild event
 
 bot.on("guildCreate", guild =>  {
-    guild.defaultChannel("--------------------\nThanks for adding Cards!\nPlease use <help to view my commands!\n--------------------")
+    guild.defaultChannel.sendMessage("--------------------\nThanks for adding Cards!\nPlease use <help to view my commands!\n--------------------")
     console.log(`Joined ${guild}!`)
 })
 
