@@ -87,6 +87,11 @@ bot.on("message", message =>    {
            
         })
     }
+// Invite command
+    if (message.content.startsWith(prefix + "invite"))  {
+        message.reply("Sent my invite link to your DM's!")
+        message.author.sendMessage("If you want to add me to your guild go to https://discordapp.com/oauth2/authorize?client_id=" + bot.user.id + "&scope=bot&permissions=9999")
+    }
 
 //OWNER ONLY COMMANDS
 // Eval command
