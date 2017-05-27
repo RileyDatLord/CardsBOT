@@ -150,5 +150,6 @@ music(bot, {
 });
 // Config "discord.js-music-v11" npm to 
 // be able to change some messages and add / remove 
-//commands to the bot. Including the prefix needing 
-//to be changed from the npm
+//commands to the bot.
+
+//Do not take all credit for this!
