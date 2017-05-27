@@ -131,13 +131,18 @@ bot.on("message", message =>    {
     if (message.content.startsWith(prefix + "card")) {
     const numCards = message.content.slice(1 + 5);
     const lines = [];
-  
-
+    if (numCards > 10)  {
+        message.channel.sendMessage("Please specify a amount of cards lower then 10")
+    } else if (numCards < 1)    {
+        message.channel.sendMessage("Please specify a amount of cards higher then 0")
+    } else {
      for (let i = 0; i < numCards; ++i) {
         lines.push(`**${ranks[Math.floor(Math.random() * ranks.length)]}**${suits[Math.floor(Math.random() * suits.length)]}`);
       }
 
-      msg.channel.sendMessage(lines.join(", "));
+      message.channel.sendMessage(lines.join(", ")); 
+    }
+
         }
 
 })
