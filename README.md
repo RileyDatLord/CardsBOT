@@ -11,6 +11,6 @@ Coming soon:
 
 - Maybe connections to minecraft server Minehut soon! -
 
-- Might add a better music system then already -
+- Might add a better music system than already. -
 
-- Might add discord levels depending on amount of messages -
+- Might add discord levels depending on the amount of messages recieved in a Discord server. -
